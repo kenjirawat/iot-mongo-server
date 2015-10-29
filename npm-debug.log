@@ -1,0 +1,272 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'standard', '-g' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 verbose cache add [ 'standard', null ]
+5 verbose cache add name=undefined spec="standard" args=["standard",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'standard',
+6 verbose parsed url   path: 'standard',
+6 verbose parsed url   href: 'standard' }
+7 silly lockFile f410e046-standard standard
+8 verbose lock standard /home/jirawat/.npm/f410e046-standard.lock
+9 silly lockFile f410e046-standard standard
+10 silly lockFile f410e046-standard standard
+11 verbose addNamed [ 'standard', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 47aebb9b-standard standard@
+14 verbose lock standard@ /home/jirawat/.npm/47aebb9b-standard.lock
+15 silly addNameRange { name: 'standard', range: '*', hasData: false }
+16 verbose request where is /standard
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id f2b78c976d3e3f67
+19 verbose url raw /standard
+20 verbose url resolving [ 'https://registry.npmjs.org/', './standard' ]
+21 verbose url resolved https://registry.npmjs.org/standard
+22 verbose request where is https://registry.npmjs.org/standard
+23 info trying registry request attempt 1 at 18:27:14
+24 verbose etag "DLXN7D8WODGVD6INJVLHMN4FB"
+25 http GET https://registry.npmjs.org/standard
+26 http 304 https://registry.npmjs.org/standard
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Tue, 27 Oct 2015 11:27:16 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"DLXN7D8WODGVD6INJVLHMN4FB"',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-sin6922-SIN',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1445945236.190552,VS0,VE204',
+27 silly registry.get     vary: 'Accept' } ]
+28 verbose etag https://registry.npmjs.org/standard from cache
+29 silly addNameRange number 2 { name: 'standard', range: '*', hasData: true }
+30 silly addNameRange versions [ 'standard',
+30 silly addNameRange   [ '1.0.0',
+30 silly addNameRange     '1.0.1',
+30 silly addNameRange     '1.0.2',
+30 silly addNameRange     '1.1.0',
+30 silly addNameRange     '1.3.0',
+30 silly addNameRange     '1.4.0',
+30 silly addNameRange     '1.4.1',
+30 silly addNameRange     '1.4.2',
+30 silly addNameRange     '1.5.0',
+30 silly addNameRange     '2.0.0',
+30 silly addNameRange     '2.1.0',
+30 silly addNameRange     '2.1.1',
+30 silly addNameRange     '2.2.0',
+30 silly addNameRange     '2.2.1',
+30 silly addNameRange     '2.2.2',
+30 silly addNameRange     '2.2.3',
+30 silly addNameRange     '2.2.4',
+30 silly addNameRange     '2.2.5',
+30 silly addNameRange     '2.2.6',
+30 silly addNameRange     '2.3.0',
+30 silly addNameRange     '2.3.1',
+30 silly addNameRange     '2.3.2',
+30 silly addNameRange     '2.4.0',
+30 silly addNameRange     '2.4.1',
+30 silly addNameRange     '2.4.2',
+30 silly addNameRange     '2.4.3',
+30 silly addNameRange     '2.4.4',
+30 silly addNameRange     '2.4.5',
+30 silly addNameRange     '2.5.0',
+30 silly addNameRange     '2.6.0',
+30 silly addNameRange     '2.6.1',
+30 silly addNameRange     '2.6.2',
+30 silly addNameRange     '2.6.3',
+30 silly addNameRange     '2.6.4',
+30 silly addNameRange     '2.6.5',
+30 silly addNameRange     '2.7.0',
+30 silly addNameRange     '2.7.1',
+30 silly addNameRange     '2.7.2',
+30 silly addNameRange     '2.7.3',
+30 silly addNameRange     '2.8.0',
+30 silly addNameRange     '2.9.0',
+30 silly addNameRange     '2.10.0',
+30 silly addNameRange     '3.0.0-alpha',
+30 silly addNameRange     '3.0.0-beta',
+30 silly addNameRange     '3.0.0-beta2',
+30 silly addNameRange     '3.0.0-beta3',
+30 silly addNameRange     '2.11.0',
+30 silly addNameRange     '3.0.0-beta4',
+30 silly addNameRange     '3.0.0',
+30 silly addNameRange     '3.1.0',
+30 silly addNameRange     '3.1.1',
+30 silly addNameRange     '3.1.2',
+30 silly addNameRange     '3.2.0',
+30 silly addNameRange     '3.2.1',
+30 silly addNameRange     '3.3.0',
+30 silly addNameRange     '3.3.1',
+30 silly addNameRange     '3.3.2',
+30 silly addNameRange     '3.4.0',
+30 silly addNameRange     '3.5.0',
+30 silly addNameRange     '3.6.0',
+30 silly addNameRange     '3.6.1',
+30 silly addNameRange     '3.7.0',
+30 silly addNameRange     '3.7.1',
+30 silly addNameRange     '3.7.2',
+30 silly addNameRange     '3.7.3',
+30 silly addNameRange     '3.8.0',
+30 silly addNameRange     '3.9.0',
+30 silly addNameRange     '3.11.0',
+30 silly addNameRange     '3.11.1',
+30 silly addNameRange     '3.13.0',
+30 silly addNameRange     '3.13.1',
+30 silly addNameRange     '3.13.2',
+30 silly addNameRange     '4.0.0',
+30 silly addNameRange     '4.0.1',
+30 silly addNameRange     '4.1.0',
+30 silly addNameRange     '4.1.1',
+30 silly addNameRange     '4.2.0',
+30 silly addNameRange     '4.2.1',
+30 silly addNameRange     '4.3.0',
+30 silly addNameRange     '4.3.1',
+30 silly addNameRange     '4.3.2',
+30 silly addNameRange     '4.3.3',
+30 silly addNameRange     '4.4.0',
+30 silly addNameRange     '4.4.1',
+30 silly addNameRange     '4.5.0',
+30 silly addNameRange     '4.5.1',
+30 silly addNameRange     '4.5.2',
+30 silly addNameRange     '4.5.3',
+30 silly addNameRange     '4.5.4',
+30 silly addNameRange     '5.0.0-0',
+30 silly addNameRange     '5.0.1-0',
+30 silly addNameRange     '5.0.0-2',
+30 silly addNameRange     '5.0.0-3',
+30 silly addNameRange     '5.0.0-4',
+30 silly addNameRange     '5.0.0-5',
+30 silly addNameRange     '5.0.0-6',
+30 silly addNameRange     '5.0.0-7',
+30 silly addNameRange     '5.0.0-8',
+30 silly addNameRange     '5.0.0',
+30 silly addNameRange     '5.0.1',
+30 silly addNameRange     '5.0.2',
+30 silly addNameRange     '5.1.0',
+30 silly addNameRange     '5.1.1',
+30 silly addNameRange     '5.2.0',
+30 silly addNameRange     '5.2.1',
+30 silly addNameRange     '5.2.2',
+30 silly addNameRange     '5.3.0',
+30 silly addNameRange     '5.3.1' ] ]
+31 verbose addNamed [ 'standard', '5.3.1' ]
+32 verbose addNamed [ '5.3.1', '5.3.1' ]
+33 silly lockFile ff576e13-standard-5-3-1 standard@5.3.1
+34 verbose lock standard@5.3.1 /home/jirawat/.npm/ff576e13-standard-5-3-1.lock
+35 silly lockFile ff576e13-standard-5-3-1 standard@5.3.1
+36 silly lockFile ff576e13-standard-5-3-1 standard@5.3.1
+37 silly lockFile 47aebb9b-standard standard@
+38 silly lockFile 47aebb9b-standard standard@
+39 silly resolved [ { name: 'standard',
+39 silly resolved     description: 'JavaScript Standard Style',
+39 silly resolved     version: '5.3.1',
+39 silly resolved     author:
+39 silly resolved      { name: 'Feross Aboukhadijeh',
+39 silly resolved        email: 'feross@feross.org',
+39 silly resolved        url: 'http://feross.org/' },
+39 silly resolved     bin: { standard: './bin/cmd.js' },
+39 silly resolved     bugs: { url: 'https://github.com/feross/standard/issues' },
+39 silly resolved     dependencies:
+39 silly resolved      { 'eslint-config-standard': '4.4.0',
+39 silly resolved        'eslint-config-standard-react': '1.1.0',
+39 silly resolved        'eslint-plugin-react': '3.4.2',
+39 silly resolved        'eslint-plugin-standard': '1.3.1',
+39 silly resolved        'standard-engine': '^2.0.4',
+39 silly resolved        'standard-format': '^1.3.3' },
+39 silly resolved     devDependencies:
+39 silly resolved      { mkdirp: '^0.5.0',
+39 silly resolved        'run-parallel-limit': '^1.0.1',
+39 silly resolved        'standard-packages': '^1.2.0',
+39 silly resolved        tape: '^4.0.0',
+39 silly resolved        xtend: '^4.0.0' },
+39 silly resolved     homepage: 'https://github.com/feross/standard',
+39 silly resolved     keywords:
+39 silly resolved      [ 'JavaScript Standard Style',
+39 silly resolved        'check',
+39 silly resolved        'checker',
+39 silly resolved        'code',
+39 silly resolved        'code checker',
+39 silly resolved        'code linter',
+39 silly resolved        'code standards',
+39 silly resolved        'code style',
+39 silly resolved        'enforce',
+39 silly resolved        'eslint',
+39 silly resolved        'hint',
+39 silly resolved        'jscs',
+39 silly resolved        'jshint',
+39 silly resolved        'lint',
+39 silly resolved        'policy',
+39 silly resolved        'quality',
+39 silly resolved        'simple',
+39 silly resolved        'standard',
+39 silly resolved        'standard style',
+39 silly resolved        'style',
+39 silly resolved        'style checker',
+39 silly resolved        'style linter',
+39 silly resolved        'verify' ],
+39 silly resolved     license: 'MIT',
+39 silly resolved     main: 'index.js',
+39 silly resolved     repository: { type: 'git', url: 'git://github.com/feross/standard.git' },
+39 silly resolved     scripts:
+39 silly resolved      { test: 'node ./bin/cmd.js && tape test/*.js',
+39 silly resolved        'test-quick': 'node ./bin/cmd.js' },
+39 silly resolved     gitHead: '739f0a95146cc23773f95e7200ff5b5a321044d6',
+39 silly resolved     _id: 'standard@5.3.1',
+39 silly resolved     _shasum: 'fc9f3d016b93c411706a47e47523bae3d2e4f523',
+39 silly resolved     _from: 'standard@',
+39 silly resolved     _npmVersion: '2.14.3',
+39 silly resolved     _nodeVersion: '4.1.0',
+39 silly resolved     _npmUser: { name: 'feross', email: 'feross@feross.org' },
+39 silly resolved     dist:
+39 silly resolved      { shasum: 'fc9f3d016b93c411706a47e47523bae3d2e4f523',
+39 silly resolved        tarball: 'http://registry.npmjs.org/standard/-/standard-5.3.1.tgz' },
+39 silly resolved     maintainers:
+39 silly resolved      [ [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object],
+39 silly resolved        [Object] ],
+39 silly resolved     directories: {},
+39 silly resolved     _resolved: 'https://registry.npmjs.org/standard/-/standard-5.3.1.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install standard@5.3.1 into /usr/local/lib
+41 info installOne standard@5.3.1
+42 verbose lib/node_modules/standard unbuild
+43 info preuninstall standard@5.1.1
+44 info uninstall standard@5.1.1
+45 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild standard@5.1.1
+46 verbose /usr/local/bin,[object Object] binRoot
+47 verbose lib/node_modules/standard unbuild
+48 info preuninstall standard@5.1.1
+49 info uninstall standard@5.1.1
+50 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild standard@5.1.1
+51 verbose /usr/local/bin,[object Object] binRoot
+52 error error rolling back Error: EACCES, unlink '/usr/local/bin/standard'
+52 error error rolling back  standard@5.3.1 { [Error: EACCES, unlink '/usr/local/bin/standard'] errno: 3, code: 'EACCES', path: '/usr/local/bin/standard' }
+53 error Error: EACCES, unlink '/usr/local/bin/standard'
+53 error  { [Error: EACCES, unlink '/usr/local/bin/standard'] errno: 3, code: 'EACCES', path: '/usr/local/bin/standard' }
+54 error Please try running this command again as root/Administrator.
+55 error System Linux 3.19.0-28-generic
+56 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "standard" "-g"
+57 error cwd /home/jirawat/Desktop/iot-mongo-server
+58 error node -v v0.10.25
+59 error npm -v 1.4.21
+60 error path /usr/local/bin/standard
+61 error code EACCES
+62 error errno 3
+63 error stack Error: EACCES, unlink '/usr/local/bin/standard'
+64 verbose exit [ 3, true ]
