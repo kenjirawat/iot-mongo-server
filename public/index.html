@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+  <script src="script.js"></script>
+  <meta charset="utf-8">
+  <title>IoT </title>
+  
+  <!-- connect Chart  -->
+  <script src="Chart.js"></script>
+
+</head>
+<body ng-controller="AppController as scope">
+	<div class="container">
+		<div class="row">
+		
+		
+			<div class="col-sm-8">
+				<table class="table">
+				<caption>IoT</caption>
+
+			
+			
+			<!-- ส่วนที่ 2 -->
+				<canvas id="myChart" width="300" height="300"></canvas>
+				<canvas id="doung" width="300" height="300"></canvas>
+
+				<!-- ส่วนที่ 3 -->
+				<script type='text/javascript'>
+				
+				// var data = {
+				//     labels : ["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
+				//     datasets : [
+				//         {
+				//             fillColor : "rgba(220,220,220,0.5)",
+				//             strokeColor : "rgba(220,220,220,1)",
+				//             pointColor : "rgba(220,220,220,1)",
+				//             pointStrokeColor : "#fff",
+				//             data : [65,59,90,81,56,55,40]
+				//         },
+				//         {
+				//             fillColor : "rgba(151,187,205,0.5)",
+				//             strokeColor : "rgba(151,187,205,1)",
+				//             pointColor : "rgba(151,187,205,1)",
+				//             pointStrokeColor : "#fff",
+				//             data : [28,48,40,19,96,27,100]
+				//         }
+				//     ]
+				// }
+///////////////////////////////// Doughnut Charts ///////
+				var data1 = [
+				    {
+				        value: 300,
+				        color:"#F7464A",
+				        highlight: "#FF5A5E",
+				        label: "Red"
+				    },
+				    {
+				        value: 50,
+				        color: "#46BFBD",
+				        highlight: "#5AD3D1",
+				        label: "Green"
+				    },
+				    {
+				        value: 100,
+				        color: "#FDB45C",
+				        highlight: "#FFC870",
+				        label: "Yellow"
+				    }
+				]
+				var data2 = [
+				    {
+				        value: 60,
+				        color:"#F7464A",
+				        highlight: "#FF5A5E",
+				        label: "Red"
+				    },
+				    {
+				        value: 32,
+				        color: "#46BFBD",
+				        highlight: "#5AD3D1",
+				        label: "Green"
+				    }
+				]
+///////////////////////////////
+
+				</script>
+
+				<!-- ส่วนที่ 4 -->
+				<script type='text/javascript'>
+				var ctx1 = document.getElementById("myChart").getContext("2d");
+				new Chart(ctx1).Doughnut(data1, {
+				    animateScale: true
+				});
+
+				// new Chart(ctx).Radar(data);
+				var ctx2 = document.getElementById("doung").getContext("2d");
+				new Chart(ctx2).Doughnut(data2, {
+				    animateScale: true
+				});
+				// var myPieChart = new Chart(ctx[0]).Pie(data,options);
+				</script>
+			
+			  	
+			  	<thead>
+			      <tr>
+			      	 <th>#</th>
+			        <th>timestamp  </th>
+			        <th>iot_id </th>
+			        <th>temperature </th>
+			        <th>relative_humidity </th>
+
+			      
+			      </tr>
+			    </thead>
+			    <tbody>
+			    	<tr ng-repeat="iotData in scope.iot">
+				  		<td>{{$index + 1}}</td>
+				  		<td>{{iotData.timestamp}}</td>
+				  		<td>{{iotData.iot_id}}</td>
+				  		<td>{{iotData.temperature}}</td>
+				  		<td>{{iotData.relative_humidity}}</td>
+				  	</tr>
+			    </tbody>
+
+			    
+
+			  </table>
+			</div>
+			<div class="col-sm-4">
+				<form ng-submit="scope.submit(input)">
+				  <div class="form-group">
+				    <label>timestamp</label>
+				    <input type="text" ng-model="input.timestamp" class="form-control" placeholder="timestamp">
+				  </div>
+				  <div class="form-group">
+				    <label >iot_id</label>
+				    <input type="text" ng-model="input.iot_id" class="form-control" placeholder="iot_id">
+				  </div>
+				  <div class="form-group">
+				    <label >temperature</label>
+				    <input type="text" ng-model="input.temperature" class="form-control" placeholder="temperature">
+				  </div>
+				   <div class="form-group">
+				    <label >relative_humidity</label>
+				    <input type="text" ng-model="input.relative_humidity" class="form-control" placeholder="relative_humidity">
+				  </div>
+				  <button type="submit" class="btn btn-default">Add</button>
+				</form>
+			</div>
+		
+		</div>
+	</div>
+</body>
+</html>
