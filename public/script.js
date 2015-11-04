@@ -8,16 +8,47 @@ angular.module('app', [])
       inputIoT(input)
     }
 
+
+    // scope.lengData = 0
+    // var data = []
+    //  $http.get('/api/iot')
+    //     .then(function success (response) {
+    //       for(var i=0;i<response.data.length;i++) {
+    //         scope.lengData = i+1
+    //         console.log(response.data[i].iot_id)
+    //         data[i] = [
+    //         {
+    //             value : scope.iot[i].temperature,
+    //             color : "#F7464A",
+    //             highlight: "#FF5A5E",
+    //             label: "Temp"
+    //         },
+    //         {
+    //             value: scope.iot[i].relative_humidity,
+    //             color: "#46BFBD",
+    //             highlight: "#5AD3D1",
+    //             label: "Hum"
+    //         }
+    //       ]
+    //       var ctx1 = document.getElementById("myChart").getContext("2d");
+    //       new Chart(ctx1).Pie(data1, {
+    //           animateScale: true
+    //       });
+
+    //       }
+          // console.log(response.data[0].iot_id)
+          // console.log(lengData)
+
+        // }, function error (response) {
+        // alert(response.data.message)
+        // })
+    
+
     function getIoT () {
       $http.get('/api/iot')
         .then(function success (response) {
           scope.iot = response.data
-          var test = []
-          for(var i=0 ; i > 2 ; i++ ){
-           test[i] = scope.iot[i].iot_id
-          }
-          console.log("id = "+test)
-
+          
 //////////// Chart ///////////
         
           var data1 = [
@@ -49,7 +80,7 @@ angular.module('app', [])
             }
         ]
         var ctx1 = document.getElementById("myChart").getContext("2d");
-        new Chart(ctx1).Doughnut(data1, {
+        new Chart(ctx1).Pie(data1, {
             animateScale: true
         });
 
@@ -77,4 +108,3 @@ angular.module('app', [])
     }
 
   })
-
