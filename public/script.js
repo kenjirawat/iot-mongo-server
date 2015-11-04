@@ -15,6 +15,7 @@ angular.module('app', [])
 
 
 //////////// Chart ///////////
+        
           var data1 = [
             {
                 value : scope.iot[0].temperature,
@@ -70,8 +71,18 @@ angular.module('app', [])
           alert(response.data.message)
         })
     }
- 
-////////////////////// Chart ////////////
-        
+    var id = 1
+    find (id)
+
+    function find (id) {
+     $http.find('/api/iot',id)
+        .then(function success (response) {
+          scope.iot = response.data.iot_id
+          console.log(scope.iot)
+        }, function error (response) {
+          alert(response.data.message)
+        })
+    }
 
   })
+
