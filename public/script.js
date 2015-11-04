@@ -12,7 +12,11 @@ angular.module('app', [])
       $http.get('/api/iot')
         .then(function success (response) {
           scope.iot = response.data
-
+          var test = []
+          for(var i=0 ; i > 2 ; i++ ){
+           test[i] = scope.iot[i].iot_id
+          }
+          console.log("id = "+test)
 
 //////////// Chart ///////////
         
@@ -67,18 +71,6 @@ angular.module('app', [])
           console.log(response)
           getIoT()
           alert('Success')
-        }, function error (response) {
-          alert(response.data.message)
-        })
-    }
-    var id = 1
-    find (id)
-
-    function find (id) {
-     $http.find('/api/iot',id)
-        .then(function success (response) {
-          scope.iot = response.data.iot_id
-          console.log(scope.iot)
         }, function error (response) {
           alert(response.data.message)
         })
