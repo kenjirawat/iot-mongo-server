@@ -8,6 +8,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+  
   <script src="script.js"></script>
   <meta charset="utf-8">
   <script src="Chart.js"></script>
@@ -15,33 +16,30 @@
   <title>Homework</title>
   
 </head>
-<body ng-controller="AppController as appCtrl">
+<body ng-controller="AppController as scope">
          <nav class="navbar navbar-default">
 			<div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                  </button>
-                    <a id="brand" class="navbar-brand" href="#">INTERNET OF THING</a>
+                    <a id="brand" class="navbar-brand" href="#">Internet Of Thing</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="login.html">login</a></li>
                         <li><a href="register.html">register</a></li>
                     </ul>
-                </div><!-- /.nav-collapse -->
-            </div><!-- /.container -->
-        </nav><!-- /.navbar -->
-<!-- // -->
-<br>
+                </div>
+            </div>
+        </nav>
+	<br>
 
 	<div class=container>
-	<!-- <button ng-click="appCtrl.toLog()">login</button>
-		<button ng-click="appCtrl.toRegister()">register</button> -->
+	
 		<div class="row">
 			<div class="col-sm-8">
 				<table class="table">
-<!-- 			  	<caption>Iot_mongoose</caption>
- -->			  	<thead>
+		  	<thead>
 			      <tr>
 			        <th>#</th>
 			        <th>timestamp</th>
@@ -51,9 +49,9 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	<tr ng-repeat="iot in appCtrl.iot">
-				  		<td>{{$index}}</td>
-				  		<td>{{appCtrl.toThaiDateTime(iot.timestamp)}}</td>
+			    	<tr ng-repeat="iot in scope.iot">
+				  		<td>{{$index+1}}</td>
+				  		<td>{{scope.toThaiDateTime(iot.timestamp)}}</td>
 				  		<td>{{iot.iot_id}}</td>
 				  		<td>{{iot.temperature}}</td>
 				  		<td>{{iot.relative_humidity}}</td>
@@ -63,7 +61,7 @@
 			  </table>
 			</div>
 			<div class="col-sm-4">
-				<form ng-submit="appCtrl.submit(input)">
+				<form ng-submit="scope.submit(input)">
 				 
 				  <div class="form-group">
 				    <label >iot_id</label>

@@ -2,7 +2,7 @@
   'use strict'
   var express = require('express')
   var router = express.Router()
-  var Model = require('./iot.schema.js')
+  var Model = require('./iot.schema.js') // model ให้นึกถึง database
 
   router.get('/api/iot', function (req, res, next) {
     Model.find({}).exec(function (err, results) {
@@ -24,7 +24,6 @@
       }
     })
   })
-
   router.post('/', function (req, res, next) {
     var obj = new Model(req.body)
     obj.save(function (err, obj) {

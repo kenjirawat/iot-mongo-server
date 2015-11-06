@@ -9,8 +9,8 @@
       type : Date , 
       default : Date.now
     },
-    iot_id:{
-      type: Number,
+    iot_id: {
+      type: String,
       required: true
     },
     temperature: {
@@ -20,8 +20,10 @@
     relative_humidity: {
       type: Number,
       required: true
-    },
+    }
+  // date: { type: Date, default: Date.now }
   })
 
   module.exports = mongoose.model(modelName, schema)
 })()
+// โครงสร้างข้อมูลของ database

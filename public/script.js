@@ -6,8 +6,8 @@ angular.module('app', [])
     scope.logout = function(){
       window.location = 'index.html'
     }
-     scope.graph = function(){
-             
+//////////////// สร้าง Graph ///////////////////////////
+      scope.graph = function(){        
       console.log("graph working") 
       $http.get('/api/iot')
               .then(function success (response) {
@@ -160,7 +160,7 @@ angular.module('app', [])
             new Chart(iot).Bar(barData);
         })
     }
-//////// Login ///////////////////
+////////////// Login ///////////////////
     scope.toLog = function(){
      window.location = 'login.html'
     }
@@ -194,20 +194,19 @@ angular.module('app', [])
         })
     }
 
-///////// register /////////
+///////////// register /////////
     scope.adduser =function (input){
         $http.post('/api/login', input)
           .then(function success (response) {
             console.log(response)
             
-            alert('Success')
+            alert('สมัครเสร็จแล้ว กรุณาล็อกอิน')
             window.location = 'login.html'
             
           }, function error (response) {
             alert(response.data.message)
         })
     }
-
     scope.toRegister = function(){
       window.location = 'register.html'
     }
@@ -215,11 +214,9 @@ angular.module('app', [])
     scope.submit = function (input) {
       saveHomework(input)
     }
-
     scope.toThaiDateTime = function (date) {
       return moment(date).format('MMMM Do YYYY, h:mm:ss a')
     }
-
     function getHomeworks () {
       $http.get('/api/iot')
         .then(function success (response) {
