@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app="todoApp">
+
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/th.js"></script>
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+	<script src="login.js"></script>
+
+  </head>
+
+  <body ng-controller="TodoListController as todoList">
+
+	  	<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+			  	<!-- Brand and toggle get grouped for better mobile display -->
+			   	<div class="navbar-header">
+			      	<a href="/api/iot/" class="navbar-brand glyphicon glyphicon-wrench"><b>API IOT(Internet of Things) Server</b></a>
+			    </div>
+			
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="index.html" class="glyphicon glyphicon-home">HOME</a></li>
+			        <li><a href="register.html" class="glyphicon glyphicon-user">REGISTER</a></li>
+			      </ul>
+		    	</div>
+	    	</div>
+		</nav>
+ 
+  	<div class="row">
+
+	  	<div class="col-md-4 col-md-offset-4">
+		  	<!--{{todoList.name}}-->
+		  	<form ng-submit="todoList.adduser(input)" class="form-horizontal">
+				<br><br>
+				<div class="form-group">
+					<center><img src="pic/iot.jpg" width="500"></center>
+				</div>
+		  		<div class="form-group">
+		    		<label for="">USERNAME</label>
+			  		<!--<h5>username</h5>-->
+			      	<input type="text" class="form-control" ng-model="input.username" required placeholder="กรอก Username">
+				</div>
+			    <div class="form-group">
+				  	<label for="">PASSWORD</label>
+			      	<input type="password" class="form-control" ng-model="input.password" required placeholder="กรอก Password"/>
+				</div>
+				<div class="form-group">
+			      	<button type="submit" class="btn btn-success form-control">LOGIN</button>
+			   	</div>
+			   	<div class="form-group">
+			      	
+			   	</div>
+			   	<br><br>
+		   	</form>
+		</div>
+	</div>
+      
+  </body>
+</html>
