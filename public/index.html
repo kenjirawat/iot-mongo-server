@@ -2,20 +2,25 @@
 <html ng-app="app">
 <head>
   <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/th.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
- 
   <script src="script.js"></script>
   <meta charset="utf-8">
-  <title>IoT </title>
-  
-  <!-- connect Chart  -->
   <script src="Chart.js"></script>
+    <script src="java.js"></script>
+        <script src="css.css"></script>
 
+
+	
+
+  <title>Homework</title>
+  
 </head>
-	<body ng-controller="AppController as scope">
+<body ng-controller="AppController as appCtrl">
          <nav class="navbar navbar-default">
 			<div class="container-fluid">
                 <div class="navbar-header">
@@ -35,8 +40,8 @@
 <br>
 
 	<div class=container>
-	<!-- <button ng-click="scope.toLog()">login</button>
-		<button ng-click="scope.toRegister()">register</button> -->
+	<!-- <button ng-click="appCtrl.toLog()">login</button>
+		<button ng-click="appCtrl.toRegister()">register</button> -->
 		<div class="row">
 			<div class="col-sm-8">
 				<table class="table">
@@ -51,18 +56,19 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	<tr ng-repeat="iot in scope.iot">
+			    	<tr ng-repeat="iot in appCtrl.iot">
 				  		<td>{{$index}}</td>
-				  		<td>{{scope.toThaiDateTime(iot.timestamp)}}</td>
+				  		<td>{{appCtrl.toThaiDateTime(iot.timestamp)}}</td>
 				  		<td>{{iot.iot_id}}</td>
 				  		<td>{{iot.temperature}}</td>
 				  		<td>{{iot.relative_humidity}}</td>
+
 				  	</tr>
 			    </tbody>
 			  </table>
 			</div>
 			<div class="col-sm-4">
-				<form ng-submit="scope.submit(input)">
+				<form ng-submit="appCtrl.submit(input)">
 				 
 				  <div class="form-group">
 				    <label >iot_id</label>
@@ -81,5 +87,5 @@
 			</div>
 		</div>
 	</div>
-</body
+</body>
 </html>

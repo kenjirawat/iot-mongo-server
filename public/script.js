@@ -1,77 +1,3 @@
-// angular.module('app', [])
-//   .controller('AppController', function ($http) {
-//     var scope = this
-
-//     getIoT()
-
-//     scope.submit = function (input) {
-//       inputIoT(input)
-//     }
-
-//     function getIoT () {
-//       $http.get('/api/iot')
-//         .then(function success (response) {
-//           scope.iot = response.data
-          
-// //////////// Chart ///////////
-        
-//           var data1 = [
-//             {
-//                 value : scope.iot[0].temperature,
-//                 color : "#F7464A",
-//                 highlight: "#FF5A5E",
-//                 label: "Temp"
-//             },
-//             {
-//                 value: scope.iot[0].relative_humidity,
-//                 color: "#46BFBD",
-//                 highlight: "#5AD3D1",
-//                 label: "Hum"
-//             }
-//           ]
-//         var data2 = [
-//             {
-//                 value : scope.iot[1].temperature,
-//                 color : "#F7464A",
-//                 highlight: "#FF5A5E",
-//                 label: "อุณหภูมิ"
-//             },
-//             {
-//                 value: scope.iot[1].relative_humidity,
-//                 color: "#46BFBD",
-//                 highlight: "#5AD3D1",
-//                 label: "ความชื้น"
-//             }
-//         ]
-//         var ctx1 = document.getElementById("myChart").getContext("2d");
-//         new Chart(ctx1).Pie(data1, {
-//             animateScale: true
-//         });
-
-//         // new Chart(ctx).Radar(data);
-//         var ctx2 = document.getElementById("doung").getContext("2d");
-//         new Chart(ctx2).Doughnut(data2, {
-//             animateScale: true
-//         })
-// //////// end chart /////
-
-//         }, function error (response) {
-//           alert(response.data.message)
-//         })
-//     }
-
-//     function inputIoT (data) {
-//       $http.post('/api/iot', data)
-//         .then(function success (response) {
-//           console.log(response)
-//           getIoT()
-//           alert('Success')
-//         }, function error (response) {
-//           alert(response.data.message)
-//         })
-//     }
-
-//   })
 angular.module('app', [])
   .controller('AppController', function ($http) {
     var vm = this
@@ -129,6 +55,8 @@ angular.module('app', [])
                         tem3avg = tem3avg + response.data[i].temperature
                         hu3avg = hu3avg + response.data[i].relative_humidity
                         c3 = c3+ 1
+                            
+
                             if(tem3min >  response.data[i].temperature) tem3min = response.data[i].temperature
                             if(tem3max <  response.data[i].temperature) tem3max = response.data[i].temperature
                         }
@@ -196,7 +124,9 @@ angular.module('app', [])
                             if(tem10min >  response.data[i].temperature) tem10min = response.data[i].temperature
                             if(tem10max <  response.data[i].temperature) tem10max = response.data[i].temperature
                         }
-    
+                        
+                        
+                      
                 }
                 tem1avg = tem1avg/c1
                 tem2avg = tem2avg/c2
@@ -243,21 +173,22 @@ angular.module('app', [])
             // draw bar chart
             new Chart(iot).Bar(barData);
 
+           
+
         })
                  
       
     }
-
+//////// Login ///////////////////
     vm.toLog = function(){
      window.location = 'login.html'
     }
     vm.login = function(input){
-      $http.post('/login', { username : input.username , password : input.password})
+      $http.post('/api/login', { username : input.username , password : input.password})
           .then(function success (response) {
             console.log(response)
             if((input.username== response.data[0].username)&&(input.password == response.data[0].password)){
               console.log("have user ");
-              
               window.location= "report.html"
             }else{
               window.location="login.html"
@@ -268,7 +199,11 @@ angular.module('app', [])
           }, function error (response) {
             alert(response.data.message)
         })
+
+
     }
+
+///////// register /////////
     vm.adduser =function (input){
         $http.post('/api/login', input)
           .then(function success (response) {
@@ -313,4 +248,30 @@ angular.module('app', [])
           alert(response.data.message)
         })
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   })
