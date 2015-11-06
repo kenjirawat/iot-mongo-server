@@ -5,9 +5,9 @@
   var Schema = mongoose.Schema
 
   var schema = new Schema({
-    timestamp: {
-      type: String,
-      required: true
+    timestamp: { 
+      type : Date , 
+      default : Date.now
     },
     iot_id: {
       type: String,

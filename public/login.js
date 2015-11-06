@@ -1,17 +1,15 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function($http,$interval) {
+  .controller('AppController', function($http,$interval) {
     var todoList = this
 
     getlogin()
     
     function getlogin () {
-      //console.log('yes')
+     console.log('yes')
       $http.get('/api/login')
         .then(function success (response) { 
           todoList.login = response.data
-          //console.log(todoList.login)
-          //console.log(response)
-          
+
         }, function error (response) {
           alert(response.data.message)
         })
@@ -27,7 +25,6 @@ angular.module('todoApp', [])
             var userpass = false
             for(var i =0;i<response.data.length;i++){
               console.log(response.data[i].username)
-
               if(response.data[i].username==input.username && response.data[i].password==input.password){
                 window.alert('ยินดีต้อนรับคุณ ' + response.data[i].name + ' เข้าสู่ระบบ')
                 window.location = "report.html"

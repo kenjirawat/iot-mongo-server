@@ -15,55 +15,54 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 
 	<script src="login.js"></script>
+	 <script src="script.js"></script>
 
   </head>
-
-  <body ng-controller="TodoListController as todoList">
-
-	  	<nav class="navbar navbar-inverse">
+		<body ng-controller="AppController as appCtrl">
+		<nav class="navbar navbar-default">
 			<div class="container-fluid">
-			  	<!-- Brand and toggle get grouped for better mobile display -->
-			   	<div class="navbar-header">
-			      	<a href="/api/iot/" class="navbar-brand glyphicon glyphicon-wrench"><b>API IOT(Internet of Things) Server</b></a>
-			    </div>
-			
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="index.html" class="glyphicon glyphicon-home">HOME</a></li>
-			        <li><a href="register.html" class="glyphicon glyphicon-user">REGISTER</a></li>
-			      </ul>
-		    	</div>
-	    	</div>
-		</nav>
- 
-  	<div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                 </button>
+                    <a id="brand" class="navbar-brand" href="index.html">INTERNET OF THING</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="register.html">register</a></li>
+                    </ul>
+                </div>     
+            </div>
+        </nav>
 
-	  	<div class="col-md-4 col-md-offset-4">
-		  	<!--{{todoList.name}}-->
-		  	<form ng-submit="todoList.adduser(input)" class="form-horizontal">
-				<br><br>
-				<div class="form-group">
-					<center><img src="pic/iot.jpg" width="500"></center>
+				<div class="container">
+					<div class="row">
+						<center>
+					  <h3><div class="col-md-12">Login</div></h3></center>
+					</div>
+				<hr>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+
+						<form class="form-horizonal" ng-submit="appCtrl.login(input)" >
+							<div class="form-group">
+								<label class="col-sm-2 control-label" >UERNAME</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" placeholder="username"  ng-model="input.username"/><br>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" >PASSWORD</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" placeholder="password" ng-model="input.password"/><br>
+								</div>
+							</div>
+							
+							<br>
+								<center><button type="submit" class="btn btn-default glyphicon glyphicon-plus">login</button></center>
+							</form>
+							<hr>
+						</div>
+					</div>
 				</div>
-		  		<div class="form-group">
-		    		<label for="">USERNAME</label>
-			  		<!--<h5>username</h5>-->
-			      	<input type="text" class="form-control" ng-model="input.username" required placeholder="กรอก Username">
-				</div>
-			    <div class="form-group">
-				  	<label for="">PASSWORD</label>
-			      	<input type="password" class="form-control" ng-model="input.password" required placeholder="กรอก Password"/>
-				</div>
-				<div class="form-group">
-			      	<button type="submit" class="btn btn-success form-control">LOGIN</button>
-			   	</div>
-			   	<div class="form-group">
-			      	
-			   	</div>
-			   	<br><br>
-		   	</form>
-		</div>
-	</div>
-      
-  </body>
+			</body>
 </html>

@@ -10,23 +10,12 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-var iot = require('./models/iot/iot.route.js')
+// app.use('/', require('./models/login/login.route.js'))
 var login = require('./models/login/login.route.js')
+app.use('/api/login', login)
 
-app.use('/api', require('./models/iot/iot.route.js'))
-app.use('/api/login',login)
-// app.use('/api/iot', iot)
-
-// app.post('/', function (req, res) {
-//   var obj = new Model(req.body)
-//   obj.save(function (err, obj) {
-//     if (err) {
-//       res.status(500).send(err)
-//     } else {
-//       res.send(obj)
-//     }
-//   })
-// })
+var iot = require('./models/iot/iot.route.js')
+app.use('/api/iot', iot)
 
 var server = app.listen(3000, function () {
   var host = server.address().address
