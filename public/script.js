@@ -1,12 +1,12 @@
 angular.module('app', [])
   .controller('AppController', function ($http) {
-    var vm = this
+    var scope = this
 
     getHomeworks()
-    vm.logout = function(){
+    scope.logout = function(){
       window.location = 'index.html'
     }
-     vm.graph = function(){
+     scope.graph = function(){
              
       console.log("graph working") 
       $http.get('/api/iot')
@@ -31,13 +31,12 @@ angular.module('app', [])
                 var hu8min = 20 , hu8max = 20,hu8avg = 0 
                 var hu9min = 20 , hu9max = 20,hu9avg = 0 
                 var hu10min = 20 , hu10max = 20,hu10avg = 0 
-               
+
                 for(var i =0;i<response.data.length;i++){
                       if(response.data[i].iot_id ==0){
                         tem1avg = tem1avg + response.data[i].temperature
                         hu1avg = hu1avg + response.data[i].relative_humidity
                         c1 = c1+ 1
-
 
                             if(tem1min >  response.data[i].temperature) tem1min = response.data[i].temperature
                             if(tem1max <  response.data[i].temperature) tem1max = response.data[i].temperature
@@ -47,7 +46,6 @@ angular.module('app', [])
                         hu2avg = hu2avg + response.data[i].relative_humidity
                         c2 = c2+ 1
                             
-
                             if(tem2min >  response.data[i].temperature) tem2min = response.data[i].temperature
                             if(tem2max <  response.data[i].temperature) tem2max = response.data[i].temperature
                         }
@@ -56,7 +54,6 @@ angular.module('app', [])
                         hu3avg = hu3avg + response.data[i].relative_humidity
                         c3 = c3+ 1
                             
-
                             if(tem3min >  response.data[i].temperature) tem3min = response.data[i].temperature
                             if(tem3max <  response.data[i].temperature) tem3max = response.data[i].temperature
                         }
@@ -66,7 +63,6 @@ angular.module('app', [])
 
                         c4 = c4+ 1
                             
-
                             if(tem4min >  response.data[i].temperature) tem4min = response.data[i].temperature
                             if(tem4max <  response.data[i].temperature) tem4max = response.data[i].temperature
                         }
@@ -75,7 +71,6 @@ angular.module('app', [])
                         hu5avg = hu5avg + response.data[i].relative_humidity
                         c5 = c5+ 1
                             
-
                             if(tem5min >  response.data[i].temperature) tem5min = response.data[i].temperature
                             if(tem5max <  response.data[i].temperature) tem5max = response.data[i].temperature
                         }
@@ -84,7 +79,6 @@ angular.module('app', [])
                         hu6avg = hu6avg + response.data[i].relative_humidity
                         c6 = c6+ 1
                             
-
                             if(tem6min >  response.data[i].temperature) tem6min = response.data[i].temperature
                             if(tem6max <  response.data[i].temperature) tem6max = response.data[i].temperature
                         }
@@ -93,15 +87,13 @@ angular.module('app', [])
                         hu7avg = hu7avg + response.data[i].relative_humidity
                         c7 = c7+ 1
                             
-
                             if(tem7min >  response.data[i].temperature) tem7min = response.data[i].temperature
                             if(tem7max <  response.data[i].temperature) tem7max = response.data[i].temperature
                         }
                       if(response.data[i].iot_id ==7){
                         tem8avg = tem8avg + response.data[i].temperature
                         hu8avg = hu8avg + response.data[i].relative_humidity
-                        c8 = c8+ 1
-                            
+                        c8 = c8+ 1  
 
                             if(tem8min >  response.data[i].temperature) tem8min = response.data[i].temperature
                             if(tem8max <  response.data[i].temperature) tem8max = response.data[i].temperature
@@ -109,8 +101,7 @@ angular.module('app', [])
                        if(response.data[i].iot_id ==8){
                         tem9avg = tem9avg + response.data[i].temperature
                         hu9avg = hu9avg + response.data[i].relative_humidity
-                        c9 = c9+ 1
-                            
+                        c9 = c9+ 1                         
 
                             if(tem9min >  response.data[i].temperature) tem9min = response.data[i].temperature
                             if(tem9max <  response.data[i].temperature) tem9max = response.data[i].temperature
@@ -119,14 +110,11 @@ angular.module('app', [])
                         tem10avg = tem10avg + response.data[i].temperature
                         hu10avg = hu10avg + response.data[i].relative_humidity
                         c10 = c10+ 1
-                            
 
                             if(tem10min >  response.data[i].temperature) tem10min = response.data[i].temperature
                             if(tem10max <  response.data[i].temperature) tem10max = response.data[i].temperature
                         }
-                        
-                        
-                      
+    
                 }
                 tem1avg = tem1avg/c1
                 tem2avg = tem2avg/c2
@@ -164,47 +152,50 @@ angular.module('app', [])
                         strokeColor : "rgba(72,174,209,0.4)",
                         data : [hu1avg,hu2avg,hu3avg,hu4avg,hu5avg,hu6avg,hu7avg,hu8avg,hu9avg,hu10avg]
                     }
-
-                   
                 ]
             }
             // get bar chart canvas
             var iot = document.getElementById("iot").getContext("2d");
             // draw bar chart
             new Chart(iot).Bar(barData);
-
-           
-
         })
-                 
-      
     }
 //////// Login ///////////////////
-    vm.toLog = function(){
+    scope.toLog = function(){
      window.location = 'login.html'
     }
-    vm.login = function(input){
-      $http.post('/api/login', { username : input.username , password : input.password})
-          .then(function success (response) {
-            console.log(response)
-            if((input.username== response.data[0].username)&&(input.password == response.data[0].password)){
-              console.log("have user ");
-              window.location= "report.html"
-            }else{
-              window.location="login.html"
+    scope.login = function  (input) {
+      //console.log('yes')
+      $http.get('/api/login')
+        .then(function success (response) { 
+
+          scope.login = response.data
+
+            var userpass = false
+            for(var i =0;i<response.data.length;i++){
+              console.log(response.data[i].username)
+
+              if(response.data[i].username==input.username && response.data[i].password==input.password){
+                window.alert('ยินดีต้อนรับคุณ ' + response.data[i].name + ' เข้าสู่ระบบ')
+                window.location = "report.html"
+                userpass = true
+                    break;
+              }
             }
-            
-          
-            
-          }, function error (response) {
-            alert(response.data.message)
+            if (userpass == false){
+                  //console.log ('Error')
+                  window.alert('คุณกรอก username หรือ password ไม่ถูกต้อง กรอกใหม่อีกครั้ง')
+            } 
+            else if (userpass==true) {
+                  window.location = "report.html"
+            }
+        }, function error (response) {
+          alert(response.data.message)
         })
-
-
     }
 
 ///////// register /////////
-    vm.adduser =function (input){
+    scope.adduser =function (input){
         $http.post('/api/login', input)
           .then(function success (response) {
             console.log(response)
@@ -217,22 +208,22 @@ angular.module('app', [])
         })
     }
 
-    vm.toRegister = function(){
+    scope.toRegister = function(){
       window.location = 'register.html'
     }
    
-    vm.submit = function (input) {
+    scope.submit = function (input) {
       saveHomework(input)
     }
 
-    vm.toThaiDateTime = function (date) {
+    scope.toThaiDateTime = function (date) {
       return moment(date).format('MMMM Do YYYY, h:mm:ss a')
     }
 
     function getHomeworks () {
       $http.get('/api/iot')
         .then(function success (response) {
-          vm.iot = response.data
+          scope.iot = response.data
         }, function error (response) {
           alert(response.data.message)
         })
